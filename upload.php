@@ -1,5 +1,5 @@
 <?php
-$secret_key = "ThisisthesecurepasswordtoourSHAREXrepository"; // Your Private Key that's used for ShareX connection
+$secret_key = "privatepasswordgoeshere"; // Your Private Key that's used for ShareX connection
 $user_list = '../logs/users.txt';
 $users = file($user_list, FILE_IGNORE_NEW_LINES);
 $sharexdir = "archive/"; // where are your images stored
