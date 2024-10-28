@@ -140,7 +140,6 @@ $message = $commentSystem->handleComment();
             <p class="inline">user to visit!</p>
         </div>
         <br>
-		<!-- File Upload Form -->
 		<p class="title">Upload File</h2>
 		<form action="upload.php" method="post" enctype="multipart/form-data">
 			<input type="text" name="user" placeholder="Enter your username" required><br>
