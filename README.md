@@ -18,25 +18,14 @@ Requirements
   
 ```
 /var/www/html/
-
 ├── archive/                # user file storage
-
 │   └── {user}/             # user directories
-
 │
-
 ├── logs/                   # log files
-
 │   ├── ip_addresses.txt    # logged IP addresses 
-
 │   ├── users.txt           # user names for the archive
-
 │   └── comments.txt        # comments file
-```
-
 │
-
 ├── index.php               # main application file
-
 └── upload.php              # file upload handling
-`
+```
