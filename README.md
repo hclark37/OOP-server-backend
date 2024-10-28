@@ -15,7 +15,9 @@ Features
 Requirements
 - PHP 7.0+
 - NGINX
-  
+
+
+Example Path
 ```
 /var/www/html/
 ├── archive/                # user file storage
