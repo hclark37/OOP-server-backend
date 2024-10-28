@@ -15,7 +15,8 @@ Features
 Requirements
 - PHP 7.0+
 - NGINX
-`
+  
+```
 /var/www/html/
 
 ├── archive/                # user file storage
@@ -31,6 +32,7 @@ Requirements
 │   ├── users.txt           # user names for the archive
 
 │   └── comments.txt        # comments file
+```
 
 │
 
