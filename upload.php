@@ -18,7 +18,7 @@ if(isset($_POST['user'])) {
 	}
 }
 
-$domain_url = '107.220.0.50'; // Your domain name
+$domain_url = 'YOURIPGOESHERE'; // Your domain name
 
 if(isset($_POST['secret'])) {
 	if($_POST['secret'] == $secret_key) {
