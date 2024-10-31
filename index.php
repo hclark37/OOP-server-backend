@@ -2,9 +2,7 @@
 session_start();
 
 class CommentSystem {
-    private $logFile;
-    private $commentFile;
-    private $cooldownTime;
+    private $logFile, $commentFile, $cooldownTime;
 
     public function __construct($logFile, $commentFile, $cooldownTime) {
         $this->logFile = $logFile;
@@ -14,12 +12,10 @@ class CommentSystem {
 
     public function logIpAddress() {
         $ipAddress = $_SERVER['REMOTE_ADDR'];
-        
         // make the log file if it doesn't exist
         if (!file_exists($this->logFile)) {
             file_put_contents($this->logFile, '');
         }
-
         // get past IP addresses
         $pastAddresses = file($this->logFile, FILE_IGNORE_NEW_LINES);
         if (!in_array($ipAddress, $pastAddresses)) {
@@ -35,12 +31,16 @@ class CommentSystem {
             if (isset($_SESSION['last_comment_time']) && (time() - $_SESSION['last_comment_time']) < $this->cooldownTime) {
                 return "You must wait before posting another comment.";
             } else {
-                $poster = !empty($_POST['poster']) ? htmlspecialchars($_POST['poster']) : "Anonymous";
+				if (!empty($_POST['poster'])) {
+					$poster = htmlspecialchars($_POST['poster']);
+				} else {
+					$poster = "anonymous";
+				}
                 $comment = substr($_POST['comment'], 0, 400);
                 file_put_contents($this->commentFile, "[" . date("Y-m-d H:i:s") . "] " . substr($poster, 0, 15) . ": " . PHP_EOL . $comment . PHP_EOL, FILE_APPEND);
-                $_SESSION['last_comment_time'] = time();
-                exit();
-            }
+                $_SESSION['last_comment_time'] = time(); //change last_comment_time to time in this session
+                exit(); //end this session 
+            } 
         }
         return '';
     }
